@@ -34,10 +34,16 @@ public:
     virtual QString getVersion() const = 0;
 
     /**
+     * @brief Gibt den Autor des Plugins zurück
+     * @return Name des Autors/Entwicklers
+     */
+    virtual QString getAuthor() const = 0;
+
+    /**
      * @brief Gibt eine Liste aller vom Plugin unterstützten Geräte zurück
      * @return Liste von IRGBDevice-Objekten
      */
-    virtual QList<IRGBDevice*> getDevices() = 0;
+    virtual QList<IRGBDevice*> getDevices() const = 0;
 };
 
 Q_DECLARE_INTERFACE(IRGBDevicePlugin, "org.lumincontrol.IRGBDevicePlugin")

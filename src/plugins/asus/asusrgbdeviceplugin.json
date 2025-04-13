@@ -1,0 +1,18 @@
+{
+    "Name": "ASUS Aura Sync Plugin",
+    "Version": "1.0.0",
+    "Author": "LuminControl Team",
+    "Description": "Plugin für die Steuerung von ASUS Aura Sync-kompatiblen RGB-Geräten",
+    "URL": "https://github.com/EinsPommes/Lumin-control",
+    "License": "MIT",
+    "Devices": [
+        "Motherboard",
+        "GPU",
+        "RAM",
+        "Keyboard",
+        "Mouse",
+        "Headset",
+        "Case",
+        "Fan"
+    ]
+}

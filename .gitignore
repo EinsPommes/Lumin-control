@@ -3,7 +3,12 @@ build/
 out/
 bin/
 lib/
-plugins/
+plugins/src/
+
+# Exclude plugin binaries but include source
+plugins/*.dll
+plugins/*.so
+plugins/*.dylib
 
 # CMake generated files
 CMakeCache.txt

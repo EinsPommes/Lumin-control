@@ -38,8 +38,49 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
-# Add subdirectories
-add_subdirectory(src)
+# Hauptanwendung
+add_executable(LuminControl
+    src/main.cpp
+    src/ui/mainwindow.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/ui/mainwindow.h
+)
+
+# Qt-Module für Hauptanwendung verlinken
+target_link_libraries(LuminControl PRIVATE
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Charts
+    config
+    core
+    devices
+    monitoring
+)
+
+# Include-Verzeichnisse für Hauptanwendung
+target_include_directories(LuminControl PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+# Ausgabeverzeichnis festlegen
+set_target_properties(LuminControl PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+)
+
+# Installation
+install(TARGETS LuminControl
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+# Unterverzeichnisse für Hauptkomponenten hinzufügen
+add_subdirectory(src/core)
+add_subdirectory(src/devices)
+add_subdirectory(src/ui)
+add_subdirectory(src/monitoring)
+add_subdirectory(src/config)
+# Plugins
+# add_subdirectory(src/plugins/asus)
 
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)

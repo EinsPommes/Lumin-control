@@ -2,6 +2,7 @@
 
 #include "devices/irgbdeviceplugin.h"
 #include "devices/irgbdevice.h"
+#include "devices/asusdevicemanager.h"
 #include <QObject>
 #include <QList>
 #include <QMap>
@@ -88,4 +89,7 @@ private:
     QList<QPluginLoader*> m_pluginLoaders;
     QList<IRGBDevicePlugin*> m_plugins;
     QMap<QString, IRGBDevice*> m_devices;
+    
+    // ASUS-Gerätemanager für integrierte ASUS-Unterstützung
+    AsusDeviceManager* m_asusManager;
 };

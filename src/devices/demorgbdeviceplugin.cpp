@@ -84,7 +84,12 @@ QString DemoRGBDevicePlugin::getVersion() const
     return "1.0.0";
 }
 
-QList<IRGBDevice*> DemoRGBDevicePlugin::getDevices()
+QString DemoRGBDevicePlugin::getAuthor() const
+{
+    return "LuminControl Team";
+}
+
+QList<IRGBDevice*> DemoRGBDevicePlugin::getDevices() const
 {
     QList<IRGBDevice*> devices;
     for (auto device : m_devices) {

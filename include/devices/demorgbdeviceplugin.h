@@ -43,10 +43,12 @@ public:
     explicit DemoRGBDevicePlugin(QObject *parent = nullptr);
     ~DemoRGBDevicePlugin();
     
+    // IRGBDevicePlugin-Interface-Implementierung
     bool initialize() override;
     QString getName() const override;
     QString getVersion() const override;
-    QList<IRGBDevice*> getDevices() override;
+    QString getAuthor() const override;
+    QList<IRGBDevice*> getDevices() const override;
 
 private:
     QList<DemoRGBDevice*> m_devices;
